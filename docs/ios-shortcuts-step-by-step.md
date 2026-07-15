@@ -22,7 +22,7 @@ Device ID：ios-phone
 Render 的 Server URL 长这样：
 
 ```text
-https://linjian-peek-server-xxxx.onrender.com
+https://peek-ios-server-xxxx.onrender.com
 ```
 
 Hugging Face 的 Server URL 长这样：
@@ -129,7 +129,7 @@ URL 填：
 例子：
 
 ```text
-https://linjian-peek-server-xxxx.onrender.com/api/ios/state
+https://peek-ios-server-xxxx.onrender.com/api/ios/state
 ```
 
 或：
@@ -161,7 +161,7 @@ Content-Type：application/json
 Render：
 
 ```text
-https://linjian-peek-server-xxxx.onrender.com/api/ios/state?device_id=ios-phone
+https://peek-ios-server-xxxx.onrender.com/api/ios/state?device_id=ios-phone
 ```
 
 Hugging Face：
@@ -215,7 +215,7 @@ URL 填：
 例子：
 
 ```text
-https://linjian-peek-server-xxxx.onrender.com/api/ios/screenshot
+https://peek-ios-server-xxxx.onrender.com/api/ios/screenshot
 ```
 
 或：

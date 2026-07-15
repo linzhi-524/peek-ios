@@ -32,7 +32,7 @@ LINJIAN_TOKEN=和掌心窗server完全一样的token
 部署完成后会得到一个 MCP 服务地址，例如：
 
 ```text
-https://linjian-peek-mcp.onrender.com
+https://peek-ios-mcp.onrender.com
 ```
 
 ## 接到 GPT
@@ -40,13 +40,13 @@ https://linjian-peek-mcp.onrender.com
 优先填：
 
 ```text
-https://linjian-peek-mcp.onrender.com/mcp
+https://peek-ios-mcp.onrender.com/mcp
 ```
 
 如果客户端要求 SSE 地址，填：
 
 ```text
-https://linjian-peek-mcp.onrender.com/sse
+https://peek-ios-mcp.onrender.com/sse
 ```
 
 ## 可用工具

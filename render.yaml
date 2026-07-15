@@ -1,16 +1,16 @@
 # Render Blueprint for 掌心窗 Palm Window MCP · iOS Lite
 #
 # This creates two Free web services:
-# 1) linjian-peek-server: Python phone/iOS backend
-# 2) linjian-peek-mcp: Node MCP gateway for ChatGPT / MCP clients
+# 1) peek-ios-server: Python phone/iOS backend
+# 2) peek-ios-mcp: Node MCP gateway for ChatGPT / MCP clients
 #
-# iOS Shortcuts Server URL: https://<linjian-peek-server>.onrender.com
-# MCP URL:                  https://<linjian-peek-mcp>.onrender.com/mcp
-# Legacy SSE URL:           https://<linjian-peek-mcp>.onrender.com/sse
+# iOS Shortcuts Server URL: https://<peek-ios-server>.onrender.com
+# MCP URL:                  https://<peek-ios-mcp>.onrender.com/mcp
+# Legacy SSE URL:           https://<peek-ios-mcp>.onrender.com/sse
 
 services:
   - type: web
-    name: linjian-peek-server
+    name: peek-ios-server
     runtime: python
     plan: free
     rootDir: server
@@ -26,7 +26,7 @@ services:
         value: ios-phone
 
   - type: web
-    name: linjian-peek-mcp
+    name: peek-ios-mcp
     runtime: node
     plan: free
     rootDir: mcp
@@ -36,12 +36,12 @@ services:
     envVars:
       - key: LINJIAN_URL
         fromService:
-          name: linjian-peek-server
+          name: peek-ios-server
           type: web
           envVarKey: RENDER_EXTERNAL_URL
       - key: LINJIAN_TOKEN
         fromService:
-          name: linjian-peek-server
+          name: peek-ios-server
           type: web
           envVarKey: LINJIAN_TOKEN
       - key: LINJIAN_DEFAULT_DEVICE

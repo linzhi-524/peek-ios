@@ -1,8 +1,8 @@
 # 掌心窗 Palm Window MCP · v0.1.9 iOS Lite 一键部署版
 
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://dashboard.render.com/blueprint/new?repo=https://github.com/linzhi-524/linjian-peek-public)
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://dashboard.render.com/blueprint/new?repo=https://github.com/linzhi-524/peek-ios)
 
-> 如果你不是用 `linzhi-524/linjian-peek-public` 这个仓库，请把按钮链接里的 `repo=` 后面换成你自己的 GitHub 仓库地址。
+> 如果你不是用 `linzhi-524/peek-ios` 这个仓库，请把按钮链接里的 `repo=` 后面换成你自己的 GitHub 仓库地址。
 
 这是掌心窗的 **iOS Lite + Android 兼容**版本。它保留原来的 `server/` + `mcp/` 架构，并新增适合 iPhone 的快捷指令方案。
 
@@ -56,7 +56,7 @@ docs/
 点 README 顶部按钮，或打开：
 
 ```text
-https://dashboard.render.com/blueprint/new?repo=https://github.com/linzhi-524/linjian-peek-public
+https://dashboard.render.com/blueprint/new?repo=https://github.com/linzhi-524/peek-ios
 ```
 
 如果你用自己的仓库，把最后的仓库地址换成你自己的。
@@ -64,7 +64,7 @@ https://dashboard.render.com/blueprint/new?repo=https://github.com/linzhi-524/li
 Render 页面这样填：
 
 ```text
-Blueprint Name：随便取，例如 linjian-peek
+Blueprint Name：随便取，例如 peek-ios
 Branch：main
 Blueprint Path：留空
 ```
@@ -72,16 +72,16 @@ Blueprint Path：留空
 点部署后会自动创建两个服务：
 
 ```text
-linjian-peek-server  → 给 iOS 快捷指令 / Android App 填的后端地址
-linjian-peek-mcp     → 给 ChatGPT / MCP 客户端填的 MCP 地址
+peek-ios-server  → 给 iOS 快捷指令 / Android App 填的后端地址
+peek-ios-mcp     → 给 ChatGPT / MCP 客户端填的 MCP 地址
 ```
 
 ### 3. 复制两个地址
 
-打开 `linjian-peek-server`，复制它的 `.onrender.com` 地址，例如：
+打开 `peek-ios-server`，复制它的 `.onrender.com` 地址，例如：
 
 ```text
-https://linjian-peek-server-xxxx.onrender.com
+https://peek-ios-server-xxxx.onrender.com
 ```
 
 这个地址用于：
@@ -91,21 +91,21 @@ iOS 快捷指令 Server URL
 Android App Server URL
 ```
 
-打开 `linjian-peek-mcp`，复制它的 `.onrender.com` 地址，然后加 `/mcp`：
+打开 `peek-ios-mcp`，复制它的 `.onrender.com` 地址，然后加 `/mcp`：
 
 ```text
-https://linjian-peek-mcp-xxxx.onrender.com/mcp
+https://peek-ios-mcp-xxxx.onrender.com/mcp
 ```
 
 旧版 SSE 客户端可用：
 
 ```text
-https://linjian-peek-mcp-xxxx.onrender.com/sse
+https://peek-ios-mcp-xxxx.onrender.com/sse
 ```
 
 ### 4. 找 Token
 
-进入 Render 的 `linjian-peek-server` 服务：
+进入 Render 的 `peek-ios-server` 服务：
 
 ```text
 Environment → LINJIAN_TOKEN
@@ -120,7 +120,7 @@ Environment → LINJIAN_TOKEN
 上传状态快捷指令：
 
 ```text
-URL：https://linjian-peek-server-xxxx.onrender.com/api/ios/state
+URL：https://peek-ios-server-xxxx.onrender.com/api/ios/state
 方法：POST
 Header：X-Auth-Token = 你的 LINJIAN_TOKEN
 Header：Content-Type = application/json
@@ -142,7 +142,7 @@ Body 最小示例：
 上传截图快捷指令：
 
 ```text
-URL：https://linjian-peek-server-xxxx.onrender.com/api/ios/screenshot
+URL：https://peek-ios-server-xxxx.onrender.com/api/ios/screenshot
 方法：POST
 Header：X-Auth-Token = 你的 LINJIAN_TOKEN
 Header：Content-Type = image/jpeg
@@ -154,8 +154,8 @@ Body：快捷指令输入的图片
 ### 6. ChatGPT / MCP 客户端怎么填
 
 ```text
-MCP 地址：https://linjian-peek-mcp-xxxx.onrender.com/mcp
-旧 SSE：https://linjian-peek-mcp-xxxx.onrender.com/sse
+MCP 地址：https://peek-ios-mcp-xxxx.onrender.com/mcp
+旧 SSE：https://peek-ios-mcp-xxxx.onrender.com/sse
 ```
 
 常用工具：
@@ -212,9 +212,9 @@ MCP URL：https://你的用户名-你的Space名.hf.space/mcp
 Render 双服务：
 
 ```text
-Server 健康检查：https://linjian-peek-server-xxxx.onrender.com/health
-MCP 健康检查：https://linjian-peek-mcp-xxxx.onrender.com/health
-MCP 地址：https://linjian-peek-mcp-xxxx.onrender.com/mcp
+Server 健康检查：https://peek-ios-server-xxxx.onrender.com/health
+MCP 健康检查：https://peek-ios-mcp-xxxx.onrender.com/health
+MCP 地址：https://peek-ios-mcp-xxxx.onrender.com/mcp
 ```
 
 Hugging Face 单服务：

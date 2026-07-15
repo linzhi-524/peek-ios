@@ -1,0 +1,20 @@
+{
+  "name": "掌心窗 iOS Lite - 上传状态",
+  "type": "shortcut-blueprint",
+  "note": "这不是可直接导入的 .shortcut 文件，而是配置快捷指令时的字段参考。",
+  "method": "POST",
+  "url": "https://YOUR_SERVER.example.com/api/ios/state",
+  "headers": {
+    "X-Auth-Token": "YOUR_LONG_RANDOM_TOKEN",
+    "Content-Type": "application/json"
+  },
+  "body": {
+    "device_id": "ios-phone",
+    "platform": "ios",
+    "battery_percent": "Shortcuts: Battery Level",
+    "charging": "Shortcuts: Is Connected to Charger, optional",
+    "local_time": "Shortcuts: Current Date formatted HH:mm",
+    "local_date": "Shortcuts: Current Date formatted yyyy-MM-dd",
+    "note": "optional user note, e.g. 在学校 / 在家 / 正在听歌"
+  }
+}

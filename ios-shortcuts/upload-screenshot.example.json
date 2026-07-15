@@ -1,0 +1,12 @@
+{
+  "name": "掌心窗 iOS Lite - 上传截图",
+  "type": "shortcut-blueprint",
+  "note": "建议流程：用户手动截图 -> 分享到快捷指令 -> 获取图片内容 -> POST 到 /api/ios/screenshot。",
+  "method": "POST",
+  "url": "https://YOUR_SERVER.example.com/api/ios/screenshot",
+  "headers": {
+    "X-Auth-Token": "YOUR_LONG_RANDOM_TOKEN",
+    "Content-Type": "image/jpeg"
+  },
+  "body": "Shortcut Input image file bytes"
+}

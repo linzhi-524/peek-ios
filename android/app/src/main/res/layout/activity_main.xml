@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/app_bg">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="18dp"
+        android:paddingRight="18dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="掌心窗"
+            android:textStyle="bold"
+            android:textSize="30sp"
+            android:textColor="#FF2F403B" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="看见当前屏幕，也感知一点生活状态。"
+            android:textSize="13sp"
+            android:textColor="#FF77908A"
+            android:layout_marginTop="2dp" />
+
+        <TextView
+            android:id="@+id/statusText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="状态加载中…"
+            android:textSize="14sp"
+            android:textColor="#FF60746F"
+            android:background="@drawable/card_bg"
+            android:layout_marginTop="12dp"
+            android:lineSpacingExtra="3dp" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingLeft="14dp"
+        android:paddingRight="14dp">
+
+        <ScrollView
+            android:id="@+id/sectionSettings"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingBottom="18dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:background="@drawable/card_bg" android:layout_marginBottom="14dp">
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="连接设置" android:textStyle="bold" android:textSize="21sp" android:textColor="#FF3E514B" />
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="填一次后端和 Token，截图、控制、生活状态都走这一扇窗。" android:textSize="13sp" android:textColor="#FF7A8F89" android:layout_marginTop="4dp" android:lineSpacingExtra="3dp" />
+                    <EditText android:id="@+id/serverUrl" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="统一后端地址，例如 https://example.onrender.com" android:textSize="14sp" android:inputType="textUri" android:singleLine="true" android:layout_marginTop="12dp" />
+                    <EditText android:id="@+id/tokenInput" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Token" android:textSize="14sp" android:inputType="textPassword" android:singleLine="true" />
+                    <EditText android:id="@+id/deviceInput" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="设备 ID，默认 my-phone" android:textSize="14sp" android:singleLine="true" />
+                    <EditText android:id="@+id/intervalInput" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="轮询间隔 ms，建议 1000-3000" android:textSize="14sp" android:inputType="number" android:singleLine="true" />
+                </LinearLayout>
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:background="@drawable/card_bg" android:layout_marginBottom="14dp">
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="权限与运行" android:textStyle="bold" android:textSize="21sp" android:textColor="#FF3E514B" />
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="无障碍用于看当前包名、读屏和执行返回/点击/滑动；使用情况访问用于统计今日屏幕时间和常用 App。" android:textSize="13sp" android:textColor="#FF7A8F89" android:layout_marginTop="5dp" android:lineSpacingExtra="4dp" />
+                    <Button android:id="@+id/accessibilityButton" android:layout_width="match_parent" android:layout_height="52dp" android:text="打开无障碍设置" android:textSize="16sp" android:layout_marginTop="12dp" android:background="@drawable/pill_soft" />
+                    <Button android:id="@+id/usageAccessButton" android:layout_width="match_parent" android:layout_height="52dp" android:text="打开使用情况访问权限" android:textSize="16sp" android:layout_marginTop="8dp" android:background="@drawable/pill_soft" />
+                    <Button android:id="@+id/toggleButton" android:layout_width="match_parent" android:layout_height="56dp" android:text="启动" android:textSize="18sp" android:textColor="#FFFFFFFF" android:background="@drawable/pill_primary" android:layout_marginTop="10dp" />
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="提示：不用时可以点停止，或关闭无障碍服务。状态层默认不截图，只上传轻量生活状态。" android:textSize="13sp" android:textColor="#FF8A7777" android:layout_marginTop="14dp" android:lineSpacingExtra="4dp" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+        <ScrollView
+            android:id="@+id/sectionSee"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingBottom="18dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:background="@drawable/card_bg" android:layout_marginBottom="14dp">
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="看见" android:textStyle="bold" android:textSize="22sp" android:textColor="#FF3E514B" />
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="等待 peek、截图上传、读取最近屏幕。适合陪刷帖子、确认当前页面。" android:textSize="13sp" android:textColor="#FF7A8F89" android:layout_marginTop="6dp" android:lineSpacingExtra="4dp" />
+                    <Button android:id="@+id/testButton" android:layout_width="match_parent" android:layout_height="54dp" android:text="测试截图上传" android:textSize="16sp" android:background="@drawable/pill_soft" android:layout_marginTop="12dp" />
+                </LinearLayout>
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:background="@drawable/card_bg" android:layout_marginBottom="14dp">
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="小规矩" android:textStyle="bold" android:textSize="19sp" android:textColor="#FF3E514B" />
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="截图是“看屏幕”，生活状态是“看状态”。能用状态表达关心时，就不必每次都截图。" android:textSize="13sp" android:textColor="#FF7A8F89" android:layout_marginTop="6dp" android:lineSpacingExtra="4dp" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+        <ScrollView
+            android:id="@+id/sectionControl"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingBottom="18dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:background="@drawable/card_bg" android:layout_marginBottom="14dp">
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="控制" android:textStyle="bold" android:textSize="22sp" android:textColor="#FF3E514B" />
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="打开 App、返回、主页、最近任务、点按、滑动。先从这些本机按钮测试。" android:textSize="13sp" android:textColor="#FF7A8F89" android:layout_marginTop="6dp" android:lineSpacingExtra="4dp" />
+                    <Button android:id="@+id/openXhsButton" android:layout_width="match_parent" android:layout_height="50dp" android:text="本机测试：打开小红书" android:background="@drawable/pill_soft" android:layout_marginTop="12dp" />
+                    <Button android:id="@+id/homeButton" android:layout_width="match_parent" android:layout_height="50dp" android:text="本机测试：回桌面" android:background="@drawable/pill_soft" android:layout_marginTop="8dp" />
+                    <Button android:id="@+id/backButton" android:layout_width="match_parent" android:layout_height="50dp" android:text="本机测试：返回" android:background="@drawable/pill_soft" android:layout_marginTop="8dp" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+        <ScrollView
+            android:id="@+id/sectionLife"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingBottom="18dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:background="@drawable/card_bg" android:layout_marginBottom="14dp">
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="生活状态层" android:textStyle="bold" android:textSize="22sp" android:textColor="#FF3E514B" />
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="不截图也能知道电量、充电、网络、当前 App、今日屏幕时间、解锁次数。适合轻量关心和状态查看。" android:textSize="13sp" android:textColor="#FF7A8F89" android:layout_marginTop="6dp" android:lineSpacingExtra="4dp" />
+                    <TextView android:id="@+id/lifeStatusText" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="生活状态加载中…" android:textSize="13sp" android:textColor="#FF40534E" android:background="#FFF1F6F4" android:padding="14dp" android:layout_marginTop="12dp" android:lineSpacingExtra="4dp" />
+                    <Button android:id="@+id/refreshLifeButton" android:layout_width="match_parent" android:layout_height="52dp" android:text="刷新生活状态" android:textSize="16sp" android:background="@drawable/pill_primary" android:textColor="#FFFFFFFF" android:layout_marginTop="12dp" />
+                </LinearLayout>
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:background="@drawable/card_bg" android:layout_marginBottom="14dp">
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="城市与天气备注" android:textStyle="bold" android:textSize="19sp" android:textColor="#FF3E514B" />
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="先用手填，后续再接天气 API。这里会随生活状态一起上传。" android:textSize="13sp" android:textColor="#FF7A8F89" android:layout_marginTop="5dp" android:lineSpacingExtra="4dp" />
+                    <EditText android:id="@+id/cityInput" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="城市，例如 石家庄" android:textSize="14sp" android:singleLine="true" android:layout_marginTop="8dp" />
+                    <EditText android:id="@+id/weatherInput" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="天气备注，例如 晴，33°C" android:textSize="14sp" android:singleLine="true" />
+                </LinearLayout>
+
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:background="@drawable/card_bg" android:layout_marginBottom="14dp">
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="主动提醒规则" android:textStyle="bold" android:textSize="19sp" android:textColor="#FF3E514B" />
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="根据生活状态自动弹通知：低电量、屏幕时间、喝水、休息眼睛。带冷却，不会一直刷屏。" android:textSize="13sp" android:textColor="#FF7A8F89" android:layout_marginTop="5dp" android:lineSpacingExtra="4dp" />
+                    <CheckBox android:id="@+id/remindersEnabled" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="开启主动提醒总开关" android:textSize="15sp" android:checked="true" android:layout_marginTop="8dp" />
+                    <CheckBox android:id="@+id/batteryRuleEnabled" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="低电量提醒" android:textSize="15sp" android:checked="true" />
+                    <EditText android:id="@+id/batteryThresholdInput" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="低电量阈值%，默认 20" android:textSize="14sp" android:inputType="number" android:singleLine="true" />
+                    <CheckBox android:id="@+id/screenRuleEnabled" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="今日屏幕时间提醒" android:textSize="15sp" android:checked="true" />
+                    <EditText android:id="@+id/screenThresholdInput" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="今日屏幕时间阈值分钟，默认 240" android:textSize="14sp" android:inputType="number" android:singleLine="true" />
+                    <CheckBox android:id="@+id/waterRuleEnabled" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="喝水提醒" android:textSize="15sp" />
+                    <EditText android:id="@+id/waterIntervalInput" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="喝水间隔分钟，默认 120" android:textSize="14sp" android:inputType="number" android:singleLine="true" />
+                    <CheckBox android:id="@+id/restRuleEnabled" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="休息眼睛提醒" android:textSize="15sp" android:checked="true" />
+                    <EditText android:id="@+id/restIntervalInput" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="休息提醒间隔分钟，默认 90" android:textSize="14sp" android:inputType="number" android:singleLine="true" />
+                </LinearLayout>
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:background="@drawable/card_bg" android:layout_marginBottom="14dp">
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="生理期提醒" android:textStyle="bold" android:textSize="19sp" android:textColor="#FF3E514B" />
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="本地推算下一次时间；上传状态只带推算结果，方便提前提醒保暖、少吃冰的。" android:textSize="13sp" android:textColor="#FF7A8F89" android:layout_marginTop="5dp" android:lineSpacingExtra="4dp" />
+                    <CheckBox android:id="@+id/cycleEnabled" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="开启生理期提醒" android:textSize="15sp" android:layout_marginTop="8dp" />
+                    <EditText android:id="@+id/lastPeriodStartInput" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="上次开始日期 yyyy-MM-dd" android:textSize="14sp" android:singleLine="true" />
+                    <EditText android:id="@+id/cycleLengthInput" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="平均周期天数，默认 30" android:textSize="14sp" android:inputType="number" android:singleLine="true" />
+                    <EditText android:id="@+id/periodLengthInput" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="一般来几天，默认 6" android:textSize="14sp" android:inputType="number" android:singleLine="true" />
+                    <EditText android:id="@+id/cycleRemindBeforeInput" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="提前几天提醒，默认 3" android:textSize="14sp" android:inputType="number" android:singleLine="true" />
+                </LinearLayout>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:background="@drawable/card_bg" android:layout_marginBottom="14dp">
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="提醒测试" android:textStyle="bold" android:textSize="19sp" android:textColor="#FF3E514B" />
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="闹钟 set_alarm；通知 send_notification。适合起床、喝水、休息眼睛和睡觉提醒。" android:textSize="13sp" android:textColor="#FF7A8F89" android:layout_marginTop="6dp" android:lineSpacingExtra="4dp" />
+                    <Button android:id="@+id/alarmTestButton" android:layout_width="match_parent" android:layout_height="54dp" android:text="本机测试：定一分钟后的闹钟" android:textSize="16sp" android:background="@drawable/pill_soft" android:layout_marginTop="12dp" />
+                    <Button android:id="@+id/notifyTestButton" android:layout_width="match_parent" android:layout_height="54dp" android:text="本机测试：弹出通知提醒" android:textSize="16sp" android:background="@drawable/pill_soft" android:layout_marginTop="8dp" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+        <ScrollView
+            android:id="@+id/sectionDebug"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingBottom="18dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:background="@drawable/card_bg" android:layout_marginBottom="14dp">
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="调试日志" android:textStyle="bold" android:textSize="22sp" android:textColor="#FF3E514B" />
+                    <TextView android:id="@+id/debugText" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="等待调试信息…" android:textSize="12sp" android:textColor="#FF4F5F5A" android:background="#FFF1F6F4" android:padding="12dp" android:layout_marginTop="12dp" android:lineSpacingExtra="3dp" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="74dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:background="@drawable/bottom_bar_bg">
+
+        <Button android:id="@+id/tabSettings" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="设置" android:textSize="13sp" android:background="@drawable/pill_soft" />
+        <Button android:id="@+id/tabSee" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="看见" android:textSize="13sp" android:layout_marginLeft="6dp" android:background="@drawable/pill_soft" />
+        <Button android:id="@+id/tabControl" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="控制" android:textSize="13sp" android:layout_marginLeft="6dp" android:background="@drawable/pill_soft" />
+        <Button android:id="@+id/tabLife" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="状态" android:textSize="13sp" android:layout_marginLeft="6dp" android:background="@drawable/pill_soft" />
+        <Button android:id="@+id/tabDebug" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="日志" android:textSize="13sp" android:layout_marginLeft="6dp" android:background="@drawable/pill_soft" />
+    </LinearLayout>
+</LinearLayout>
